@@ -31,9 +31,9 @@ resource "aws_security_group" "Jenkins-sg" {
 
 
 resource "aws_instance" "web" {
-  ami                    = "ami-0522ab6e1ddcc7055"
-  instance_type          = "t2.large"
-  key_name               = "my key"
+  ami                    = "ami-08eb150f611ca277f"
+  instance_type          = "t3.large"
+  key_name               = "stockholm"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   user_data              = templatefile("./EC2.sh", {})
 
@@ -45,9 +45,9 @@ resource "aws_instance" "web" {
   }
 }
 resource "aws_instance" "web2" {
-  ami                    = "ami-0c7217cdde317cfec"
-  instance_type          = "t2.medium"
-  key_name               = "my key"
+  ami                    = "ami-08eb150f611ca277f"
+  instance_type          = "t3.medium"
+  key_name               = "stockholm"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   tags = {
     Name = "Monitering via grafana"
